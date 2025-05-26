@@ -1,5 +1,6 @@
 import React from "react";
 import CustomDate from "./PostDate";
+import View from "./PostView";
 
 function PostHeader({ title, team, views, date, onAdd, onDelete, onEdit }) {
   return (
@@ -11,7 +12,7 @@ function PostHeader({ title, team, views, date, onAdd, onDelete, onEdit }) {
       <h2>{title}</h2>
       <div style={{ color: "#777", marginBottom: "0.5rem" }}>
         <CustomDate />
-        views={views}
+        <View />
         <span style={{ marginLeft: "10px" }}>{date}</span>
       </div>
       <div style={{ display: "flex", gap: "0.5rem" }}>
