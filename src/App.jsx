@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PostHeader from "./components/PostHeader";
 import PostContent from "./components/PostContent";
+import PostActions from "./components/PostActions";
 
 function App() {
   const [showInput, setShowInput] = useState(false);
@@ -26,8 +27,8 @@ function App() {
       <PostHeader
         title="오늘 뭐 먹을까?"
         team="Team 1"
-        views={1234}
-        date="2025.05.26"
+        //views={1234}
+        //date="2025.05.26"
         onAdd={handleAdd}
         onDelete={handleDelete}
         onEdit={() => alert("수정 클릭")}
@@ -48,6 +49,9 @@ function App() {
       )}
 
       {postText && <PostContent text={postText} />}
+
+      <hr></hr>
+      <PostActions></PostActions>
     </div>
   );
 }

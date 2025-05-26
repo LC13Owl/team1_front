@@ -1,4 +1,5 @@
 import React from "react";
+import CustomDate from "./PostDate";
 
 function PostHeader({ title, team, views, date, onAdd, onDelete, onEdit }) {
   return (
@@ -9,7 +10,8 @@ function PostHeader({ title, team, views, date, onAdd, onDelete, onEdit }) {
       <div style={{ fontWeight: "bold" }}>{team}</div>
       <h2>{title}</h2>
       <div style={{ color: "#777", marginBottom: "0.5rem" }}>
-        <span>조회수 {views}</span>
+        <CustomDate />
+        views={views}
         <span style={{ marginLeft: "10px" }}>{date}</span>
       </div>
       <div style={{ display: "flex", gap: "0.5rem" }}>
