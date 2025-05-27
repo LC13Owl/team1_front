@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import PostHeader from "./components/PostHeader";
 import PostContent from "./components/PostContent";
 import PostActions from "./components/PostActions";
-import "./App.css"; // ✅ 스타일 import
+import "./App.css";
 
 function App() {
   const [showInput, setShowInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [postText, setPostText] = useState("");
-  const [isEditing, setIsEditing] = useState(false); // ✅ 수정 기능 추가
+  const [isEditing, setIsEditing] = useState(false);
   const [postTime, setPostTime] = useState(null);
   const handleAdd = () => {
     setShowInput(true);
