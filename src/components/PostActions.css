@@ -15,7 +15,6 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
-
 .post-actions button:hover {
   background-color: #ccc;
 }

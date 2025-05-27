@@ -5,6 +5,7 @@ function PostContent({ text, date, views }) {
   return (
     <div
       style={{
+        //css 설정
         marginTop: "1rem",
         borderTop: "1px solid #ccc",
         paddingTop: "1rem",

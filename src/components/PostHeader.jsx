@@ -1,5 +1,4 @@
 import React from "react";
-import CustomDate from "./PostDate";
 import "./PostHeader.css";
 import View from "./PostView";
 
