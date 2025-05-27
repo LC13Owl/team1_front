@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./PostActions.css"; // ✅ CSS 분리 후 import
+import "./PostActions.css"; //
 
 function PostActions() {
   const [likes, setLikes] = useState(0);
