@@ -9,12 +9,11 @@ function PostHeader({ title, team, views, date, onAdd, onDelete, onEdit }) {
       <div className="team">{team}</div>
       <h2>{title}</h2>
       <div className="meta">
-        <CustomDate />
+        <CustomDate date={date} />
         <View />
-        <span>{date}</span>
       </div>
       <div className="buttons">
-        <button onClick={onAdd}>추가</button>
+        <button onClick={onAdd}>작성</button>
         <button onClick={onDelete}>삭제</button>
         <button onClick={onEdit}>수정</button>
       </div>

@@ -9,7 +9,7 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   const [postText, setPostText] = useState("");
   const [isEditing, setIsEditing] = useState(false); // ✅ 수정 기능 추가
-
+  const [postTime, setPostTime] = useState(null);
   const handleAdd = () => {
     setShowInput(true);
     setInputValue("");
@@ -25,6 +25,7 @@ function App() {
   const handleRegister = () => {
     if (inputValue.trim() === "") return;
     setPostText(inputValue);
+    setPostTime(new Date());
     setInputValue("");
     setShowInput(false);
     setIsEditing(false);
@@ -44,6 +45,7 @@ function App() {
       <PostHeader
         title="오늘 뭐 먹을까?"
         team="Team 1"
+        date={postTime}
         onAdd={handleAdd}
         onDelete={handleDelete}
         onEdit={handleEdit}
