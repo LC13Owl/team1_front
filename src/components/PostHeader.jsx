@@ -1,21 +1,19 @@
 import React from "react";
 import CustomDate from "./PostDate";
+import "./PostHeader.css";
 import View from "./PostView";
 
 function PostHeader({ title, team, views, date, onAdd, onDelete, onEdit }) {
   return (
-    <div
-      className="post-header"
-      style={{ padding: "1rem", borderBottom: "1px solid #ccc" }}
-    >
-      <div style={{ fontWeight: "bold" }}>{team}</div>
+    <div className="post-header">
+      <div className="team">{team}</div>
       <h2>{title}</h2>
-      <div style={{ color: "#777", marginBottom: "0.5rem" }}>
+      <div className="meta">
         <CustomDate />
         <View />
-        <span style={{ marginLeft: "10px" }}>{date}</span>
+        <span>{date}</span>
       </div>
-      <div style={{ display: "flex", gap: "0.5rem" }}>
+      <div className="buttons">
         <button onClick={onAdd}>추가</button>
         <button onClick={onDelete}>삭제</button>
         <button onClick={onEdit}>수정</button>

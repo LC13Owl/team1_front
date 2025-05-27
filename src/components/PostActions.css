@@ -1,0 +1,21 @@
+.post-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.post-actions button {
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: #e0e0e0;
+  color: #333;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.post-actions button:hover {
+  background-color: #ccc;
+}

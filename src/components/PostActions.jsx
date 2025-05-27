@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./PostActions.css"; // ✅ CSS 분리 후 import
 
 function PostActions() {
   const [likes, setLikes] = useState(0);
@@ -13,16 +14,9 @@ function PostActions() {
   };
 
   return (
-    <div
-      className="post-actions"
-      style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}
-    >
-      <button onClick={handleLike} style={{ fontSize: "1.5rem" }}>
-        👍 {likes}
-      </button>
-      <button onClick={handleDislike} style={{ fontSize: "1.5rem" }}>
-        👎 {dislikes}
-      </button>
+    <div className="post-actions">
+      <button onClick={handleLike}>👍 {likes}</button>
+      <button onClick={handleDislike}>👎 {dislikes}</button>
     </div>
   );
 }

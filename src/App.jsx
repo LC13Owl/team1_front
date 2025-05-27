@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import PostHeader from "./components/PostHeader";
 import PostContent from "./components/PostContent";
 import PostActions from "./components/PostActions";
+import "./App.css"; // ✅ 스타일 import
 
 function App() {
   const [showInput, setShowInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [postText, setPostText] = useState("");
+  const [isEditing, setIsEditing] = useState(false); // ✅ 수정 기능 추가
 
   const handleAdd = () => {
-    setShowInput(true); // textarea + 등록 버튼 보이기
+    setShowInput(true);
+    setInputValue("");
+    setIsEditing(false);
   };
 
   const handleEdit = () => {
@@ -19,27 +23,34 @@ function App() {
   };
 
   const handleRegister = () => {
-    setPostText(inputValue); // 입력한 값을 본문에 반영
-    setInputValue(""); // 입력창 초기화
-    setShowInput(false); // 입력창 숨기기 (선택)
+    if (inputValue.trim() === "") return;
+    setPostText(inputValue);
+    setInputValue("");
+    setShowInput(false);
+    setIsEditing(false);
   };
 
   const handleDelete = () => {
-    setPostText(""); // 글 내용 삭제
+    if (window.confirm("정말 삭제하시겠습니까?")) {
+      setPostText("");
+      setInputValue("");
+      setShowInput(false);
+      setIsEditing(false);
+    }
   };
 
   return (
-    <div className="App" style={{ padding: "1rem" }}>
+    <div className="app">
       <PostHeader
         title="오늘 뭐 먹을까?"
         team="Team 1"
         onAdd={handleAdd}
         onDelete={handleDelete}
-        onEdit={() => alert("수정 클릭")}
+        onEdit={handleEdit}
       />
 
       {showInput && (
-        <div style={{ margin: "1rem 0" }}>
+        <div className="input-area">
           <textarea
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
@@ -48,14 +59,15 @@ function App() {
             placeholder="내용을 입력하세요"
           />
           <br />
-          <button onClick={handleRegister}>등록</button>
+          <button onClick={handleRegister} className="register">
+            {isEditing ? "수정 완료" : "등록"}
+          </button>
         </div>
       )}
 
       {postText && <PostContent text={postText} />}
-
-      <hr></hr>
-      <PostActions></PostActions>
+      <hr />
+      <PostActions />
     </div>
   );
 }
