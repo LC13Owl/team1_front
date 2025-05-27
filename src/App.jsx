@@ -4,12 +4,16 @@ import PostContent from "./components/PostContent";
 import PostActions from "./components/PostActions";
 import "./App.css";
 
+import { useEffect } from "react";
+
 function App() {
   const [showInput, setShowInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [postText, setPostText] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [postTime, setPostTime] = useState(null);
+  const [views, setViews] = useState(0);
+
   const handleAdd = () => {
     setShowInput(true);
     setInputValue("");
@@ -21,11 +25,18 @@ function App() {
     setInputValue(postText);
     setIsEditing(true);
   };
-
   const handleRegister = () => {
     if (inputValue.trim() === "") return;
+
+    const isNewPost = !postText;
+
     setPostText(inputValue);
     setPostTime(new Date());
+
+    if (isNewPost) {
+      setViews((prev) => prev + 1);
+    }
+
     setInputValue("");
     setShowInput(false);
     setIsEditing(false);
@@ -67,7 +78,9 @@ function App() {
         </div>
       )}
 
-      {postText && <PostContent text={postText} />}
+      {postText && (
+        <PostContent text={postText} date={postTime} views={views} />
+      )}
       <hr />
       <PostActions />
     </div>

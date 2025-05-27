@@ -13,7 +13,7 @@ const CustomDate = ({ date }) => {
 
   return (
     <span style={{ fontSize: "0.9rem", color: "#888" }}>
-      🕒 작성시각: {formatted}
+      작성시각: {formatted}
     </span>
   );
 };

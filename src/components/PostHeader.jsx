@@ -9,7 +9,6 @@ function PostHeader({ title, team, views, date, onAdd, onDelete, onEdit }) {
       <div className="team">{team}</div>
       <h2>{title}</h2>
       <div className="meta">
-        <CustomDate date={date} />
         <View />
       </div>
       <div className="buttons">
